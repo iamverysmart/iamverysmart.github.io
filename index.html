@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/main.css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 id='title' class="text-primary"></h1>
+        <div id='bullshit'>
+
+        </div>
+        <hr>
+        <button class='btn btn-primary' onClick="window.location.reload();">Reload for more bullshit</button>
+    </div>
+    </div>
+  </div>
+</body>
+
+<script>
+    $.getJSON( "http://iamverysmartapi.herokuapp.com/bullshit", function(data) {
+        $('title').text('I Am Very Smart :: ' + data.title)
+        $("#title").text(data.title);
+        data.bullshit.forEach(function(para) {
+            $('#bullshit').append('<p>' + para + '</p>')
+        })
+    });
+</script>
+
+</html>
