@@ -20,20 +20,31 @@
 
         </div>
         <hr>
-        <button class='btn btn-primary' onClick="window.location.reload();">Reload for more bullshit</button>
+        <button class='btn btn-primary' onClick="populate()">Reload for more bullshit</button>
+        <hr>
+        <p>
+            Content comes from an <a href='https://iamverysmartapi.herokuapp.com/redoc'>API</a> hosted on the Heroku free-tier so it may well have gone to sleep. Please be patient
+        </p>
     </div>
     </div>
   </div>
 </body>
 
 <script>
-    $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit", function(data) {
-        $('title').text('I Am Very Smart::' + data.title)
-        $("#title").text(data.title);
-        data.bullshit.forEach(function(para) {
-            $('#bullshit').append('<p>' + para + '</p>')
-        })
+    $( document ).ready(function() {
+        populate()
     });
+
+    function populate() {
+        $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit", function(data) {
+            $('title').text('I Am Very Smart::' + data.title)
+            $("#title").text(data.title);
+            $('#bullshit').empty()
+            data.bullshit.forEach(function(para) {
+                $('#bullshit').append('<p>' + para + '</p>')
+            })
+        });
+    }
 </script>
 
 </html>
