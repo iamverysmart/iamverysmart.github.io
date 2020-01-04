@@ -27,7 +27,7 @@
 </body>
 
 <script>
-    $.getJSON( "http://iamverysmartapi.herokuapp.com/bullshit", function(data) {
+    $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit", function(data) {
         $('title').text('I Am Very Smart::' + data.title)
         $("#title").text(data.title);
         data.bullshit.forEach(function(para) {
