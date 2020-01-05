@@ -158,7 +158,7 @@ var windowOpen;
         populate()
     });
     function populate() {
-        $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit", function(data) {
+        $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit?paragraphs=4", function(data) {
             $('title').text(data.title)
             $("#title").text(data.title);
             $('#bullshit').empty()
