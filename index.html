@@ -43,7 +43,11 @@
 
 
                     <footer class="entry-meta">
-                        This entry was posted in <a href="#" rel="category tag">'Econophysics'</a>, <a href="#" rel="category tag">Artificial Intelligence / Artificial Life / Robotics / BCIs / Computer Science</a>, <a href="#" rel="category tag">Behavioural &amp; Experimental Economics</a>, <a href="#" rel="category tag">Brain (Cognitive Science, Neuroscience, Evolutionary Psychology etc)</a>, <a href="#" rel="category tag">Collaborations</a>, <a href="#" rel="category tag">Complex systems / Network theory etc</a>, <a href="#" rel="category tag">Decisions</a>, <a href="#" rel="category tag">Economics &amp; Finance</a>, <a href="#" rel="category tag">Game Theory</a>, <a href="#" rel="category tag">Information Markets</a>, <a href="#" rel="category tag">My essay 'Some thoughts on education and...'</a>, <a href="#" rel="category tag">Politics</a>, <a href="#" rel="category tag">Technology</a>, <a href="#" rel="category tag">The Sphinx of Psychology &amp; Persuasion</a>, <a href="#" rel="category tag">Wargames</a> and tagged <a href="#" rel="tag">Apollo</a>, <a href="#" rel="tag">Bret Victor</a>, <a href="#" rel="tag">experts</a>, <a href="#" rel="tag">George Mueller</a>, <a href="#" rel="tag">Groves</a>, <a href="#" rel="tag">i</a>, <a href="#" rel="tag">Judea Pearl</a>, <a href="#" rel="tag">machine learning</a>, <a href="#" rel="tag">Manhattan Project</a>, <a href="#" rel="tag">procurement</a>, <a href="#" rel="tag">Victoria Woodcock</a>, <a href="#" rel="tag">Warren Buffett</a>.
+						This entry was posted in
+						{% for cat in site.data.posted-in.categories %}
+						<a href="#" rel="category tag">{{ cat }}</a>{% if forloop.last == false %},
+						{% endif %}
+						{% endfor %}
                             </footer><!-- .entry-meta -->
                 </article><!-- #post-## -->
 
@@ -74,7 +78,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
         <div class="site-info">
-
+		The words of one of our Leading Intellectuals, run through a <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov Chain</a>.
         Content comes from an <a href='https://iamverysmartapi.herokuapp.com/redoc'>API</a> hosted on the Heroku free-tier so it may well have gone to sleep. Please be patient
     </div>
 	</footer><!-- #colophon .site-footer -->
