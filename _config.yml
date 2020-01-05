@@ -1,11 +1,11 @@
 # Site settings
-title:
-    email:
-    author:
-    description:
-    url:
+title: A Verysmart Person Writes
+email:
+author:
+description:
+url:
 
-    # Build settings
-    permalink: :title/
-    sass:
-      sass_dir: _sass
+# Build settings
+permalink: :title/
+sass:
+    sass_dir: _sass

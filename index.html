@@ -1,43 +1,263 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/main.css">
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <title></title>
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1 id='title' class="text-primary"></h1>
-        <div id='bullshit'>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<!--[if lt IE 9]>
+<script src="https://s2.wp.com/wp-content/themes/pub/misty-lake/js/html5.js" type="text/javascript"></script>
+<![endif]-->
 
-        </div>
-        <hr>
-        <button class='btn btn-primary' onClick="populate()">Reload for more bullshit</button>
-        <hr>
-        <p>
-            Content comes from an <a href='https://iamverysmartapi.herokuapp.com/redoc'>API</a> hosted on the Heroku free-tier so it may well have gone to sleep. Please be patient
-        </p>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+
+<title></title>
+
+
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//wordpress.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0-1' href='https://s1.wp.com/_static/??-eJydk91ugzAMhV9owWVSVXox7VkCeMxt/pQ4Rbz9DOm2rtvYxA2KzfmOTWxgDKrzjtEx2KyCyQO5BGPovFXJksHpLqq6lB7gZyyi0Yy9Cj7xXbSGGTpjghNy0N1ZLdE3+bt2yBK2GAd5ExEOVV3toM1kemiNX/A26jhB4sngP2wW6rM6XkQm8uy496PbamP05DOrIVK/1SJqJjekrTiTRUMO/+BfsjEqEaPCnuaC16nArqqb6nG+1KFMsBSAnhLDhXD81bLz11bq2WJXiJKqSjPLvDa3VLox4nrb0n12beHm1ZG8DZpnhZU6Gg1aka1h5T9o2xAxJSVPS9kqfhVwdb+Fmq3LZoMIv2YKSuA8k9Dp4/DNs5SCkFuw8qGTrNn5ZsDP9qneHw7HfXNsmtMbMkByaQ==?cssminify=yes' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify {
+	text-align:justify;
+}
+</style>
+<!--[if IE 8]>
+<link rel='stylesheet' id='mistylake-ie-css'  href='https://s2.wp.com/wp-content/themes/pub/misty-lake/ie.css?m=1377549400h&#038;ver=5.3.2' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='mistylake-open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic&#038;subset=latin,latin-ext' media='all' />
+<link rel='stylesheet' id='mistylake-droid-serif-css'  href='https://fonts.googleapis.com/css?family=Droid+Serif%3A400%2C400italic%2C400bold&#038;subset=latin&#038;ver=5.3.2' media='all' />
+<link rel='stylesheet' id='all-css-6-1' href='https://s1.wp.com/_static/??-eJzTLy/QTc7PK0nNK9HPLdUtyClNz8wr1k9PzdfNyU9OLMnMz0Ph6KblJGYW6SUXF+voY9dalJqUk58OZKbrA1UhcUGa7HNtDU1MLU1MLMwNTbIAmkQtqg==?cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='print-css-7-1' href='https://s2.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1465851035h&cssminify=yes' type='text/css' media='print' />
+<link rel='stylesheet' id='all-css-8-1' href='https://s0.wp.com/_static/??-eJx9jtEOgjAMRX/IUTESxoPxW8Yco1pWQkuMf+9MIGJIfGqbnHt74Dkaz0lDUhhmM9IcMQk4r8ipddN3K7zIATb4ynYzkRHUYMINFVNcWuBYlLY4QSRuXSb0RUFA1Cl6aMmlx65yYzCyqOnI4QTSuynXrvNfSthj/kUc+ffYhbQPQ9bpz4vfB7gOl7Kq66ayjbX3N8C0aCc=?cssminify=yes' type='text/css' media='all' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<script>
+var related_posts_js_options = {"post_heading":"h4"};
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJyFj9EOwiAMRX9Ihntw0wfjtyCrpAgFKbjo1wuJPrgsmjRpbnpy762co0DSrkzA0ta5FUiP9+osb+QvQHg0SWXoPNIH1oEyUG5sDJw9MCsDK1cfzuhAFIZUAco15hKWnC8iumKQWCZwNWoSzXWhVty/H0G6I8x/MQs5Kn0VCRifrfPJH/vd2B+24zDs7QszQHB9'></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s0.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1530132353h&cssminify=yes' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' media='all' />
+<![endif]-->
+
+
+		</head>
+
+<body class="post-template-default single single-post postid-14596 single-format-standard customizer-styles-applied highlander-enabled highlander-light">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="#" title="{{ site.title }}" rel="home">{{ site.title }}</a> 	</h1>
+                <h2><a href="#" onClick="populate()" style="text-decoration: underline; color: #fa8100">Click here to generate fresh bullshit</a></h2>
+            </div>
+
+		<nav id="nav" role="navigation" class="site-navigation main-navigation">
+			<h1 class="assistive-text screen-reader-text">Menu</h1>
+			<div class="assistive-text skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+			<div class="menu"><ul>
+<li ><a href="#">Home</a></li><li class="page_item page-item-2"><a href="#">About</a></li>
+<li class="page_item page-item-422"><a href="#">An Index of blogs, articles,&nbsp;papers</a></li>
+<li class="page_item page-item-1495"><a href="#">Education reform 2010-14</a></li>
+<li class="page_item page-item-67"><a href="#">My essay on an &#8216;Odyssean&#8217; Education</a></li>
+<li class="page_item page-item-1080"><a href="#">On the EU&nbsp;Referendum</a></li>
+</ul></div>
+		</nav><!-- .site-navigation .main-navigation -->
+	</header><!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+            <article id="post-14596" class="post type-post status-publish format-standard hentry">
+                <header class="entry-header">
+                    <div class="entry-meta">
+                        <a href="#" title="17:26" rel="bookmark">Today</a><span class="byline"> by <span class="author vcard"><a href="#">A Verysmart Person</a></span></span>	</div><!-- .entry-meta -->
+                    <h1 class="entry-title" id="title">title</h1>	</header><!-- .entry-header -->
+            <br><br>
+                <div id="bullshit">
+                    </div>
+
+
+                    <footer class="entry-meta">
+                        This entry was posted in <a href="#" rel="category tag">'Econophysics'</a>, <a href="#" rel="category tag">Artificial Intelligence / Artificial Life / Robotics / BCIs / Computer Science</a>, <a href="#" rel="category tag">Behavioural &amp; Experimental Economics</a>, <a href="#" rel="category tag">Brain (Cognitive Science, Neuroscience, Evolutionary Psychology etc)</a>, <a href="#" rel="category tag">Collaborations</a>, <a href="#" rel="category tag">Complex systems / Network theory etc</a>, <a href="#" rel="category tag">Decisions</a>, <a href="#" rel="category tag">Economics &amp; Finance</a>, <a href="#" rel="category tag">Game Theory</a>, <a href="#" rel="category tag">Information Markets</a>, <a href="#" rel="category tag">My essay 'Some thoughts on education and...'</a>, <a href="#" rel="category tag">Politics</a>, <a href="#" rel="category tag">Technology</a>, <a href="#" rel="category tag">The Sphinx of Psychology &amp; Persuasion</a>, <a href="#" rel="category tag">Wargames</a> and tagged <a href="#" rel="tag">Apollo</a>, <a href="#" rel="tag">Bret Victor</a>, <a href="#" rel="tag">experts</a>, <a href="#" rel="tag">George Mueller</a>, <a href="#" rel="tag">Groves</a>, <a href="#" rel="tag">i</a>, <a href="#" rel="tag">Judea Pearl</a>, <a href="#" rel="tag">machine learning</a>, <a href="#" rel="tag">Manhattan Project</a>, <a href="#" rel="tag">procurement</a>, <a href="#" rel="tag">Victoria Woodcock</a>, <a href="#" rel="tag">Warren Buffett</a>.
+                            </footer><!-- .entry-meta -->
+                </article><!-- #post-## -->
+
+
+
+
+
+		</div><!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+
+<div id="secondary" class="updateable widget-area" role="complementary">
+				<aside id="recent-posts-4" class="widget widget_recent_entries">		<h1 class="widget-title">Recent posts</h1>		<ul>
+                    <li>
+<a href="#" aria-current="page">&#8216;Two hands are a lot&#8217; &#8212; we&#8217;re hiring data scientists, project managers, policy experts, assorted&nbsp;weirdos&#8230;</a>
+            </li>
+                    <li>
+<a href="#">On the referendum #34: BATSIGNAL!! DON&#8217;T LET CORBYN-STURGEON CHEAT A SECOND REFERENDUM WITH MILLIONS OF FOREIGN&nbsp;VOTES</a>
+            </li>
+                    <li>
+<a href="#">On the referendum #33: High performance government, &#8216;cognitive technologies&#8217;, Michael Nielsen, Bret Victor, &amp; &#8216;Seeing&nbsp;Rooms&#8217;</a>
+            </li>
+                    <li>
+<a href="#">On the referendum #24N: Actions have&nbsp;consequences</a>
+            </li>
+                    <li>
+<a href="#">On the referendum #32: Science/productivity &#8212; a) small teams are more disruptive, b) &#8216;science is becoming far less efficient&#8217;</a>
+            </li>
+</ul>
+		</aside><aside id="linkcat-1356" class="widget widget_links"><h1 class="widget-title">Blogroll</h1>
+	<ul class='xoxo blogroll'>
+<li><a href="http://scottaaronson.com/blog/" title="Computational complexity, Quantum Computers">Aaronson</a></li>
+<li><a href="http://www.technologyreview.com/blog/arxiv/" title="MIT blog on new arXiv articles">arXiv blog</a></li>
+<li><a href="https://www.centauri-dreams.org">Centauri Dreams</a></li>
+<li><a href="http://rjlipton.wordpress.com/" title="Logic, maths, computer science">Gödel&#039;s Lost Letter and P=NP</a></li>
+<li><a href="http://infoproc.blogspot.com/" title="Physicist, hedge funder">InfoProc</a></li>
+<li><a href="https://intelligence.org">Machine Intelligence Research Institute</a></li>
+<li><a href="http://michaelnielsen.org/blog/" title="Quantum Computation pioneer">Michael Nielsen</a></li>
+<li><a href="http://www.nature.com/news/index.html">Nature&#039;s News</a></li>
+<li><a href="http://www.math.columbia.edu/~woit/wordpress/" title="Peter Woit, mathematician">Not Even Wrong (Woit)</a></li>
+<li><a href="http://www.overcomingbias.com">Overcoming Bias</a></li>
+<li><a href="http://slatestarcodex.com">Slate Star Codex</a></li>
+<li><a href="http://terrytao.wordpress.com/" title="Mathematician (Fields Medalist)">Terry Tao</a></li>
+<li><a href="http://gowers.wordpress.com/" title="Mathematician (Fields Medalist)">Tim Gowers</a></li>
+<li><a href="http://yudkowsky.net">Yudkowsky</a></li>
+<li><a href="http://www.zerohedge.com/">ZeroHedge</a></li>
+
+	</ul>
+</aside>
+
+			</aside><aside id="wp_tag_cloud-3" class="widget wp_widget_tag_cloud"><h1 class="widget-title">Tags</h1><div style="overflow:hidden"><a href="#" class="tag-cloud-link tag-link-214865489 tag-link-position-1" style="font-size: 8pt;" aria-label="&#039;Odyssean&#039; education (7 items)">&#039;Odyssean&#039; education</a>
+<a href="#" class="tag-cloud-link tag-link-59310390 tag-link-position-2" style="font-size: 12.027397260274pt;" aria-label="Cadwalladr (12 items)">Cadwalladr</a>
+<a href="#" class="tag-cloud-link tag-link-76967 tag-link-position-3" style="font-size: 16.821917808219pt;" aria-label="Cameron (22 items)">Cameron</a>
+<a href="#" class="tag-cloud-link tag-link-2702 tag-link-position-4" style="font-size: 8pt;" aria-label="EU (7 items)">EU</a>
+<a href="#" class="tag-cloud-link tag-link-321727 tag-link-position-5" style="font-size: 22pt;" aria-label="EU referendum (42 items)">EU referendum</a>
+<a href="#" class="tag-cloud-link tag-link-37082 tag-link-position-6" style="font-size: 8.958904109589pt;" aria-label="experts (8 items)">experts</a>
+<a href="#" class="tag-cloud-link tag-link-4524719 tag-link-position-7" style="font-size: 12.794520547945pt;" aria-label="Gove (13 items)">Gove</a>
+<a href="#" class="tag-cloud-link tag-link-24374 tag-link-position-8" style="font-size: 8pt;" aria-label="IQ (7 items)">IQ</a>
+<a href="#" class="tag-cloud-link tag-link-292 tag-link-position-9" style="font-size: 8pt;" aria-label="Media (7 items)">Media</a>
+<a href="#" class="tag-cloud-link tag-link-1811 tag-link-position-10" style="font-size: 10.684931506849pt;" aria-label="polls (10 items)">polls</a>
+<a href="#" class="tag-cloud-link tag-link-22707 tag-link-position-11" style="font-size: 11.452054794521pt;" aria-label="predictions (11 items)">predictions</a>
+<a href="#" class="tag-cloud-link tag-link-135872 tag-link-position-12" style="font-size: 9.9178082191781pt;" aria-label="pundits (9 items)">pundits</a>
+<a href="#" class="tag-cloud-link tag-link-2544500 tag-link-position-13" style="font-size: 9.9178082191781pt;" aria-label="Single Market (9 items)">Single Market</a>
+<a href="#" class="tag-cloud-link tag-link-9658245 tag-link-position-14" style="font-size: 9.9178082191781pt;" aria-label="Spads (9 items)">Spads</a>
+<a href="#" class="tag-cloud-link tag-link-406626870 tag-link-position-15" style="font-size: 14.904109589041pt;" aria-label="Vote Leave (17 items)">Vote Leave</a></div></aside></div><!-- #secondary .widget-area -->
+
+	</div><!-- #main .site-main -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+        <div class="site-info">
+
+        Content comes from an <a href='https://iamverysmartapi.herokuapp.com/redoc'>API</a> hosted on the Heroku free-tier so it may well have gone to sleep. Please be patient
     </div>
-    </div>
-  </div>
-</body>
+	</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<!--  -->
+<script src='//0.gravatar.com/js/gprofiles.js?ver=202001y'></script>
+<script>
+var WPGroHo = {"my_hash":""};
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+
+<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1573483029j'></script>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=249643311490&version=v2.3'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+			<script>
+			jQuery( document.body ).on( 'post-load', function() {
+				if ( 'undefined' !== typeof FB ) {
+					FB.XFBML.parse();
+				}
+			} );
+			</script>
+			<link rel='stylesheet' id='all-css-0-3' href='https://s2.wp.com/wp-content/plugins/gutenberg-blocks/jetpack-layout-grid/blocks/front.css?m=1576278967h&cssminify=yes' type='text/css' media='all' />
+<script>
+var comment_like_text = {"loading":"Loading..."};
+</script>
+
+<script>
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyVkttugzAMhl9owe2mqvRi2qNMIRhqyGk5wPr2c1Souq6r1CuM7f/3Zyswe6GcTWgTDBFanEih/66G+AJXJZOF17knG0HTiBG+MmY8SttqDGszWaVzy8ViRDHBhLZ1oZS806eOtK4M2Vvv1bjLWotICQW2lMj2y0jYVNu6eoVGO065mKLgUI3LDML5Aa1yxnBKnKmHgt9AnMnjM6Jfif/4+8y/DYb+jMdCTF6qUeBUtMplm1o3W1jKN+lb23REw9N9bsDwoieh5YgFJhrJh2KefO/wK2pAr0/3zn215wIIn2wAaaaUMIhEBjXZR/eRLfuKRgYwMrKGI+EmDIEKxCX3pEMKzPLnutcilcjZIrpEj7pHigaTeKs25wU7F8yD/vKyRKclBYhHGfj9rV8WfZj37W6/P+zqQ10PP5lLMz4='></script>
+<script type='text/javascript'>
+( 'fetch' in window ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?m=1573572739h&#038;ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?m=1540208548h&#038;ver=3.26.0-0"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?m=1550600082h&#038;ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?m=1540208548h&#038;ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script type='text/javascript'>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+</script>
+
+
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
 
 <script>
     $( document ).ready(function() {
         populate()
     });
-
     function populate() {
         $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit", function(data) {
-            $('title').text('I Am Very Smart::' + data.title)
+            $('title').text(data.title)
             $("#title").text(data.title);
             $('#bullshit').empty()
             data.bullshit.forEach(function(para) {
@@ -47,4 +267,11 @@
     }
 </script>
 
+</body>
 </html>
+<!--
+	generated 107 seconds ago
+	generated in 0.155 seconds
+	served from batcache in 0.002 seconds
+	expires in 193 seconds
+-->
