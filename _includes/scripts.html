@@ -1,0 +1,56 @@
+
+<script>
+    $( document ).ready(function() {
+		make_tags()
+        populate()
+    });
+    function populate() {
+        $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit?paragraphs=4", function(data) {
+            $('title').text(data.title)
+            $("#title").text(data.title);
+
+            $('#bullshit').empty()
+            data.bullshit.forEach(function(para) {
+                $('#bullshit').append('<p>' + para + '</p>')
+            })
+
+            $("#recents-list").empty()
+			data.recents.forEach(function(recent) {
+				$("#recents-list").append('<li><a href="#recent-posts">'  + recent + '</a></li>')
+			})
+        });
+    }
+
+	function make_tags() {
+		var tags = [
+			{% for tag in site.data.tags %}
+			"{{ tag }}",
+			{% endfor %}
+		]
+
+		tags = shuffleArray(tags)
+
+        $('#tagcloud-list').empty()
+		tags.forEach(function(tag) {
+			$('#tagcloud-list').append('<a href="#tagcloud" class="tag-cloud-link tag-link-59310390 tag-link-position-2" style="font-size: ' + ((Math.random() * 10) + 5) + 'pt">' + tag + ' </a>')
+		})
+	}
+
+	function shuffleArray ( array ) {
+        var counter = array.length, temp, index;
+        // While there are elements in the array
+        while ( counter > 0 ) {
+            // Pick a random index
+            index = Math.floor( Math.random() * counter );
+
+            // Decrease counter by 1
+            counter--;
+
+            // And swap the last element with it
+            temp = array[ counter ];
+            array[ counter ] = array[ index ];
+            array[ index ] = temp;
+        }
+        return array;
+    }
+</script>

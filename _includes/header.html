@@ -1,0 +1,33 @@
+<header id="masthead" class="site-header" role="banner">
+    <div class="site-branding">
+        <h1 class="site-title">
+            <a href="#" title="{{ site.title }}" rel="home">{{ site.title }}</a>
+        </h1>
+        <h2>
+            <a href="#" onClick="populate()" style="text-decoration: underline; color: #fa8100">{{ site.regen-text }}</a>
+        </h2>
+    </div>
+
+    <nav id="nav" role="navigation" class="site-navigation main-navigation">
+        <h1 class="assistive-text screen-reader-text">Menu</h1>
+        <div class="assistive-text skip-link screen-reader-text">
+            <a href="#content" title="Skip to content">Skip to content</a>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li class="page_item page-item-2">
+                    <a href="#">About</a>
+                </li>
+                {% for link in site.data.nav %}
+                    <li class="page_item page-item-1495">
+                        <a href="#">{{ link }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav><!-- .site-navigation .main-navigation -->
+</header><!-- #masthead .site-header -->

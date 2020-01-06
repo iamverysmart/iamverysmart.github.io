@@ -1,0 +1,16 @@
+<div id="primary" class="content-area">
+    <div id="content" class="site-content" role="main">
+
+        {% include content.html %}
+
+        <footer class="entry-meta" id="tedious-list">
+            This entry was posted in
+            {% for cat in site.data.tags %}
+                <a href="#tedious-list" rel="category tag">{{ cat }}</a>,
+            {% endfor %}
+            {% for cat in site.data.posted-in %}
+                <a href="#tedious-list" rel="category tag">{{ cat }}</a>{% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+        </footer><!-- .entry-meta -->
+    </div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->

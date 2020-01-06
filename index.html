@@ -3,213 +3,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include head.html %}
+	{% include head.html %}
 
-<body class="post-template-default single single-post postid-14596 single-format-standard customizer-styles-applied highlander-enabled highlander-light">
-<div id="page" class="hfeed site">
-		<header id="masthead" class="site-header" role="banner">
-            <div class="site-branding">
-                <h1 class="site-title"><a href="#" title="{{ site.title }}" rel="home">{{ site.title }}</a> 	</h1>
-                <h2><a href="#" onClick="populate()" style="text-decoration: underline; color: #fa8100">Click here to generate more Priceless Insights</a></h2>
-            </div>
+	<body class="post-template-default single single-post postid-14596 single-format-standard customizer-styles-applied highlander-enabled highlander-light">
+		<div id="page" class="hfeed site">
 
-		<nav id="nav" role="navigation" class="site-navigation main-navigation">
-			<h1 class="assistive-text screen-reader-text">Menu</h1>
-			<div class="assistive-text skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+			{% include header.html %}
 
-			<div class="menu"><ul>
-				<li ><a href="#">Home</a></li><li class="page_item page-item-2"><a href="#">About</a></li>
-				{% for link in site.data.nav.items%}
-				<li class="page_item page-item-1495"><a href="#">{{ link }}</a></li>
-				{% endfor %}
-</ul></div>
-		</nav><!-- .site-navigation .main-navigation -->
-	</header><!-- #masthead .site-header -->
+			<div id="main" class="site-main">
 
-	<div id="main" class="site-main">
+				{% include primary.html %}
 
+				{% include secondary.html %}
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+			</div><!-- #main .site-main -->
 
-            <article id="post-14596" class="post type-post status-publish format-standard hentry">
-                <header class="entry-header">
-                    <div class="entry-meta">
-                        <a href="#" title="17:26" rel="bookmark">Today</a><span class="byline"> by <span class="author vcard"><a href="#">A Verysmart Person</a></span></span>	</div><!-- .entry-meta -->
-                    <h1 class="entry-title" id="title"></h1>	</header><!-- .entry-header -->
-            <br><br>
-                <div id="bullshit">
-                    </div>
+			{% include footer.html %}
 
+		</div><!-- #page .hfeed .site -->
 
-                    <footer class="entry-meta">
-						This entry was posted in
-						{% for cat in site.data.posted-in.categories %}
-						<a href="#" rel="category tag">{{ cat }}</a>{% if forloop.last == false %},
-						{% endif %}
-						{% endfor %}
-                            </footer><!-- .entry-meta -->
-                </article><!-- #post-## -->
+		{% include scripts.html %}
 
-
-
-
-
-		</div><!-- #content .site-content -->
-	</div><!-- #primary .content-area -->
-
-
-<div id="secondary" class="updateable widget-area" role="complementary">
-				<aside id="recent-posts-4" class="widget widget_recent_entries">		<h1 class="widget-title">Recent posts</h1>		<ul id="recents">
-
-</ul>
-		</aside><aside id="linkcat-1356" class="widget widget_links"><h1 class="widget-title">Blogroll</h1>
-	<ul class='xoxo blogroll'>
-		{% for blog in site.data.blogroll.blogs %}
-		<li><a href="#">{{ blog }}</a>
-		{% endfor %}
-
-	</ul>
-</aside>
-
-			</aside><aside id="wp_tag_cloud-3" class="widget wp_widget_tag_cloud"><h1 class="widget-title">Tags</h1><div style="overflow:hidden" id="tags"></div></aside></div><!-- #secondary .widget-area -->
-
-	</div><!-- #main .site-main -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-        <div class="site-info">
-		The words of one of our Leading Intellectuals, run through a <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov Chain</a>.
-        Content comes from an <a href='https://iamverysmartapi.herokuapp.com/redoc'>API</a> hosted on the Heroku free-tier so it may well have gone to sleep. Please be patient
-    </div>
-	</footer><!-- #colophon .site-footer -->
-</div><!-- #page .hfeed .site -->
-
-<!--  -->
-<script src='//0.gravatar.com/js/gprofiles.js?ver=202001y'></script>
-<script>
-var WPGroHo = {"my_hash":""};
-</script>
-<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
-
-	<script>
-		//initialize and attach hovercards to all gravatars
-		jQuery( document ).ready( function( $ ) {
-
-			if (typeof Gravatar === "undefined"){
-				return;
-			}
-
-			if ( typeof Gravatar.init !== "function" ) {
-				return;
-			}
-
-			Gravatar.profile_cb = function( hash, id ) {
-				WPGroHo.syncProfileData( hash, id );
-			};
-			Gravatar.my_hash = WPGroHo.my_hash;
-			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
-		});
-	</script>
-
-		<div style="display:none">
-	</div>
-
-<script type='text/javascript' src='https://s0.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1573483029j'></script>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=249643311490&version=v2.3'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-			<script>
-			jQuery( document.body ).on( 'post-load', function() {
-				if ( 'undefined' !== typeof FB ) {
-					FB.XFBML.parse();
-				}
-			} );
-			</script>
-			<link rel='stylesheet' id='all-css-0-3' href='https://s2.wp.com/wp-content/plugins/gutenberg-blocks/jetpack-layout-grid/blocks/front.css?m=1576278967h&cssminify=yes' type='text/css' media='all' />
-<script>
-var comment_like_text = {"loading":"Loading..."};
-</script>
-
-<script>
-var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
-</script>
-<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyVkttugzAMhl9owe2mqvRi2qNMIRhqyGk5wPr2c1Souq6r1CuM7f/3Zyswe6GcTWgTDBFanEih/66G+AJXJZOF17knG0HTiBG+MmY8SttqDGszWaVzy8ViRDHBhLZ1oZS806eOtK4M2Vvv1bjLWotICQW2lMj2y0jYVNu6eoVGO065mKLgUI3LDML5Aa1yxnBKnKmHgt9AnMnjM6Jfif/4+8y/DYb+jMdCTF6qUeBUtMplm1o3W1jKN+lb23REw9N9bsDwoieh5YgFJhrJh2KefO/wK2pAr0/3zn215wIIn2wAaaaUMIhEBjXZR/eRLfuKRgYwMrKGI+EmDIEKxCX3pEMKzPLnutcilcjZIrpEj7pHigaTeKs25wU7F8yD/vKyRKclBYhHGfj9rV8WfZj37W6/P+zqQ10PP5lLMz4='></script>
-<script type='text/javascript'>
-( 'fetch' in window ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?m=1573572739h&#038;ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?m=1540208548h&#038;ver=3.26.0-0"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?m=1550600082h&#038;ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?m=1540208548h&#038;ver=2.0.2"></scr' + 'ipt>' );
-</script>
-<script type='text/javascript'>
-var windowOpen;
-			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
-				// If there's another sharing window open, close it.
-				if ( 'undefined' !== typeof windowOpen ) {
-					windowOpen.close();
-				}
-				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
-				return false;
-			});
-</script>
-
-
-<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
-
-<script>
-    $( document ).ready(function() {
-		make_tags()
-        populate()
-    });
-    function populate() {
-        $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit?paragraphs=4", function(data) {
-            $('title').text(data.title)
-            $("#title").text(data.title);
-            $('#bullshit').empty()
-            data.bullshit.forEach(function(para) {
-                $('#bullshit').append('<p>' + para + '</p>')
-            })
-			$("#recents").empty()
-			data.recents.forEach(function(recent) {
-				$("#recents").append('<li><a href="#">'  + recent + '</a></li>')
-			})
-        });
-    }
-
-	function make_tags() {
-		var tags = [
-			{% for tag in site.data.tags.tags %}
-			"{{ tag }}",
-			{% endfor %}
-		]
-
-		tags = shuffleArray(tags)
-
-		tags.forEach(function(tag) {
-			$('#tags').append('<a href="#" class="tag-cloud-link tag-link-59310390 tag-link-position-2" style="font-size: ' + ((Math.random() * 10) + 5) + 'pt">' + tag + ' </a>')
-		})
-	}
-
-	function shuffleArray ( array ) {
-    var counter = array.length, temp, index;
-    // While there are elements in the array
-    while ( counter > 0 ) {
-        // Pick a random index
-        index = Math.floor( Math.random() * counter );
-
-        // Decrease counter by 1
-        counter--;
-
-        // And swap the last element with it
-        temp = array[ counter ];
-        array[ counter ] = array[ index ];
-        array[ index ] = temp;
-    }
-    return array;
-}
-</script>
-
-</body>
+		{% include crufty-scripts.html %}
+	</body>
 </html>
-<!--
-	generated 107 seconds ago
-	generated in 0.155 seconds
-	served from batcache in 0.002 seconds
-	expires in 193 seconds
--->
