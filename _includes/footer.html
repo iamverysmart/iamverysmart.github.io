@@ -5,5 +5,13 @@
         Content comes from an
         <a href='https://iamverysmartapi.herokuapp.com/redoc'>API</a>
         hosted on the Heroku free-tier so it may well have gone to sleep. Please be patient.
+        <br>
+        Built with
+        {% for tool in site.data.tools %}
+        <a href="{{ tool.url }}">{{ tool.name }}</a>
+        {% if forloop.last == false %}
+        ::
+        {% endif %}
+        {% endfor %}
     </div>
 </footer><!-- #colophon .site-footer -->
