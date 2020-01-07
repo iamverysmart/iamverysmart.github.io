@@ -1,39 +1,54 @@
 
 <script>
-    $( document ).ready(function() {
-		make_tags()
-        populate()
-    });
-    function populate() {
-        $.getJSON( "https://iamverysmartapi.herokuapp.com/bullshit?paragraphs=4", function(data) {
-            $('title').text(data.title)
-            $("#title").text(data.title);
+    var api = "{{ site.api }}"
 
-            $('#bullshit').empty()
-            data.bullshit.forEach(function(para) {
-                $('#bullshit').append('<p>' + para + '</p>')
-            })
+    var default_content = {{ site.data.default-content | jsonify }}
 
-            $("#recents-list").empty()
-			data.recents.forEach(function(recent) {
-				$("#recents-list").append('<li><a href="#recent-posts">'  + recent + '</a></li>')
-			})
-        });
+    var tags = {{ site.data.tags | jsonify }}
+    var posted_in = {{ site.data.posted-in | jsonify }}.concat(tags).sort()
+    posted_in.push("Fuck me this is a long, tedious list")
+
+    function populate(data) {
+        $('title').text(data.title)
+        $("#title").text(data.title)
+
+        $('#bullshit').empty()
+        data.bullshit.forEach(function(para) {
+            $('#bullshit').append(`<p>${para}</p>`)
+        })
+
+        $("#recents-list").empty()
+        data.recents.forEach(function(recent) {
+            $("#recents-list").append(`<li><a href="#recent-posts">${recent}</a></li>`)
+        })
+    }
+
+    function update() {
+        $.ajax({
+            url: api,
+            type: "GET",
+            dataType: "json",
+            timeout: 1000,
+            success: function(response) { populate(response) },
+            error: function(xmlhttprequest, textstatus, message) {
+                populate(default_content)
+            }
+        })
     }
 
 	function make_tags() {
-		var tags = [
-			{% for tag in site.data.tags %}
-			"{{ tag }}",
-			{% endfor %}
-		]
-
-		tags = shuffleArray(tags)
-
         $('#tagcloud-list').empty()
-		tags.forEach(function(tag) {
-			$('#tagcloud-list').append('<a href="#tagcloud" class="tag-cloud-link tag-link-59310390 tag-link-position-2" style="font-size: ' + ((Math.random() * 10) + 5) + 'pt">' + tag + ' </a>')
+		shuffleArray(tags).forEach(function(tag) {
+			$('#tagcloud-list').append(`
+            <a
+                href="#tagcloud"
+                class="tag-cloud-link"
+                style="font-size: ${((Math.random() * 10) + 5)}pt">${tag}
+            </a>
+            `)
 		})
+
+        $('#tedious-list').append(posted_in.map(function(item) {return `<a href="#tedious-list" rel="category tag">${item}</a>`} ).join(', '))
 	}
 
 	function shuffleArray ( array ) {
@@ -53,4 +68,9 @@
         }
         return array;
     }
+
+    $( document ).ready(function() {
+		make_tags()
+        update()
+    })
 </script>
