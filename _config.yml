@@ -5,4 +5,3 @@ regen-text: Click here to generate more Priceless Insights
 url: https://silly-einstein-15d570.netlify.com/
 card-image: https://thenib.imgix.net/usq/8688038d-f99b-4224-872b-b8dd626f868c/mister-gotcha-4-9faefa.png
 api: "https://iamverysmartapi.herokuapp.com/bullshit?paragraphs=4"
-api: "http://localhost:5000/bullshit?paragraphs=4"
